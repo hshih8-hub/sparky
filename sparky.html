@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sparky the Singularity</title>
+  <meta name="description" content="An elegant single-page profile introducing Sparky the Labradoodle. Morandi color palette, sticky nav, responsive layout." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f6f5f7;
+      --primary: #b4b8d1;
+      --primary-strong:#a2a7c3;
+      --accent: #9aa5b1;
+      --surface: #ffffff;
+      --surface-alt:#eef0f4;
+      --text: #2e2f33;
+      --link: #4b5a7a;
+      --shadow: rgba(0,0,0,.08);
+      --radius-lg: 16px;
+      --radius-pill: 999px;
+      --maxw: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--link); text-decoration: none; }
+    .site-nav{
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: .8rem 1.25rem;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+    .brand{
+      font-family: "Playfair Display", serif;
+      font-weight: 700; letter-spacing: .4px;
+      color: #fff; font-size: 1.5rem;
+    }
+    .nav-links{
+      display: flex; list-style: none; gap: 1.25rem; margin: 0; padding: 0;
+    }
+    .nav-links a{ color: #fff; font-weight: 600; }
+    .nav-links a:hover{ text-decoration: underline; }
+    .hero{
+      background: var(--surface-alt);
+      padding: 5rem 1.25rem;
+    }
+    .hero-inner{
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; gap: 2rem;
+      grid-template-columns: 1fr;
+      align-items: center; justify-items: center; text-align: center;
+    }
+    @media (min-width: 880px){
+      .hero-inner{
+        grid-template-columns: auto 1fr;
+        text-align: left; justify-items: start;
+      }
+    }
+    .portrait{
+      margin: 0; display: grid; place-items: center;
+    }
+    .portrait img{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--primary);
+      box-shadow: 0 8px 20px var(--shadow);
+      background: #ddd;
+    }
+    .headline{
+      font-family: "Playfair Display", serif;
+      margin: 0 0 .4rem;
+      font-size: 2.8rem;
+      color: var(--text);
+    }
+    .tagline{
+      margin: 0 0 1.25rem;
+      color: var(--accent);
+      font-style: italic;
+      font-size: 1.15rem;
+    }
+    .hero-cta{ display: flex; flex-wrap: wrap; gap: .75rem; }
+    .btn{
+      display: inline-block;
+      padding: .75rem 1.25rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 14px var(--shadow);
+    }
+    .btn:hover{ background: var(--primary-strong); }
+    .btn.ghost{
+      background: transparent; color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn.ghost:hover{ background: var(--primary); color: #fff; }
+    .section{ padding: 4rem 1.25rem; }
+    .section.alt{ background: var(--surface-alt); }
+    .container{ max-width: var(--maxw); margin: 0 auto; }
+    .section-title{
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin: 0 0 1rem; color: var(--primary);
+    }
+    .two-col{
+      display: grid; gap: 1.75rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 860px){
+      .two-col{ grid-template-columns: 1.1fr .9fr; }
+    }
+    .fact-grid{
+      display: grid; gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .fact{
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 6px 14px var(--shadow);
+    }
+    .fact .k{
+      display:block; font-weight: 700; color: var(--primary); margin-bottom:.2rem;
+    }
+    .fact .v{ color: var(--accent); font-style: italic; }
+    .reasons{ margin: .5rem 0 0; padding-left: 1.2rem; }
+    .reasons li{ margin: .4rem 0; }
+    .contact .btn{ margin-top: .5rem; }
+    .site-footer{
+      text-align: center;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="brand" href="#top">Sparky</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <figure class="portrait">
+        <img src="Saprky.jpg" alt="Sparky the Labradoodle smiling indoors">
+      </figure>
+      <div class="hero-copy">
+        <h1 class="headline">Sparky the Singularity</h1>
+        <p class="tagline">Warm. Curious. A heartbeat wrapped in curls.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#about">Learn more</a>
+          <a class="btn ghost" href="#contact">Say hello</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div>
+        <h2 class="section-title">About Sparky</h2>
+        <p>
+          Sparky is a sweet and curious Labradoodle with a heart full of joy. He loves to sit by the window and watch
+          the birds flutter and the deer wander by. His soft curls bounce when he runs, and his gentle eyes seem to
+          understand everything you say. Sparky is calm, kind, and always ready for a cuddle — the perfect companion
+          who fills every day with warmth and laughter.
+        </p>
+      </div>
+      <div>
+        <div class="fact-grid" role="list">
+          <div class="fact" role="listitem"><span class="k">Favorite spot</span><span class="v">Sunny window</span></div>
+          <div class="fact" role="listitem"><span class="k">Personality</span><span class="v">Gentle & playful</span></div>
+          <div class="fact" role="listitem"><span class="k">Superpower</span><span class="v">Instant calm hugs</span></div>
+          <div class="fact" role="listitem"><span class="k">Hobbies</span><span class="v">Bird-watching, napping</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="why" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Why we love him</h2>
+      <ul class="reasons">
+        <li>He brings everyone together — a true team mascot.</li>
+        <li>He listens first, then nudges your hand like a coach.</li>
+        <li>He keeps the routine: walk, water, treat, nap, repeat.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <div class="container contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Want to meet Sparky or send him a treat? <a href="#top">Ping us here</a> — he’ll wag back.</p>
+      <a class="btn" href="#top">Back to top</a>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <small>© 2025 Sparky & Friends</small>
+  </footer>
+</body>
+</html>
